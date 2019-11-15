@@ -45,3 +45,58 @@ FROM Movies.movies
 WHERE title LIKE '%(2001)%' && title LIKE '%super%' or
 title LIKE '%(2002)%' && title LIKE '%super%';
 --12
+--13
+INSERT INTO actors ( name, dob, charName, movieId)
+VALUES
+('Kit', '1981-10-02', 'Jon', 1),
+('Emilia', '1981-10-01', 'Daenerys', 1),
+('Sophie', '1981-10-11', 'Sansa', 1),
+('Maisie', '1991-10-01', 'Arya', 1),
+('Lena', '1921-10-01', 'Cersei', 1),
+('Peter', '1981-10-01', 'Tyrion', 1),
+('Nikolaj', '1971-10-01', 'Jaime', 1),
+('John', '1971-10-01', 'Samwell', 1),
+('Richard', '1981-10-01', 'Robb', 1),
+('Ygritte', '1991-10-01', 'Rose', 1),
+('Scarlett', '1981-10-02', 'Black Widow', 2),
+('Chris H', '1981-10-01', 'Thor', 2),
+('Robert', '1981-10-11', 'Iron Man', 2),
+('Chris E', '1991-10-01', 'Captain America', 2),
+('Mark R', '1921-10-01', 'Hulk', 2),
+('Jeremy', '1981-10-01', 'Hawkeye', 2),
+('Tom', '1971-10-01', 'Loki', 2),
+('Paul', '1971-10-01', 'Ant-Man', 2),
+('Tom Holland', '1981-10-01', 'Spider-man', 2),
+('Josh', '1991-10-01', 'Thanos', 2),
+('Jenna', '1981-10-02', 'Pam', 3),
+('John', '1981-10-01', 'Jim', 3),
+('Steve', '1981-10-11', 'Michael', 3),
+('Rainn', '1991-10-01', 'Dwight', 3),
+('Angela', '1921-10-01', 'Angela', 3),
+('Mindy', '1981-10-01', 'Kelly', 3),
+('Ed', '1971-10-01', 'Andy', 3),
+('B.J.', '1971-10-01', 'Ryan', 3),
+('Brian', '1981-10-01', 'Kevin', 3),
+('Ellie', '1991-10-01', 'Erin', 3)
+--14
+Update Movies.movies
+SET rating = 'G'
+WHERE id = 1;
+Update Movies.movies
+SET rating = 'PG-13'
+WHERE id = 2;
+Update Movies.movies
+SET rating = 'PG-13'
+WHERE id = 3;
+Update Movies.movies
+SET rating = 'R'
+WHERE id = 4;
+Update Movies.movies
+SET rating = 'PG'
+WHERE id = 5;
+
+SELECT id, title, genres, rating
+FROM Movies.movies;
+--With Joins
+--15
+
