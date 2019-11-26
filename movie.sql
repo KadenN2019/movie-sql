@@ -99,4 +99,28 @@ SELECT id, title, genres, rating
 FROM Movies.movies;
 --With Joins
 --15
+SELECT title, ratings.rating
+FROM Movies.movies
+LEFT outer JOIN Movies.ratings 
+ON Movies.movies.id = Movies.ratings.movie_id
+WHERE  movies.title LIKE 'godfather, the%';
 
+--16
+SELECT title, ratings.rating, timestamp
+FROM Movies.movies
+LEFT JOIN Movies.ratings
+ON Movies.movies.id = Movies.ratings.movie_id
+WHERE title LIKE '%godfather, the%'
+ORDER BY timestamp ASC
+
+--17
+SELECT title, imdb_id, genres
+FROM Movies.movies
+INNER JOIN Movies.links
+ON Movies.movies.id = Movies.links.imdb_Id
+WHERE genres LIKE '%comed%' && title LIKE ('%2005%')
+
+--18
+SELECT title
+FROM Movies.movies
+WHERE id NOT IN (SELECT movie_id FROM Movies.ratings)
