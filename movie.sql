@@ -124,3 +124,54 @@ WHERE genres LIKE '%comed%' && title LIKE ('%2005%')
 SELECT title
 FROM Movies.movies
 WHERE id NOT IN (SELECT movie_id FROM Movies.ratings)
+--aggregation objectives
+--19
+SELECT AVG(ratings.rating)
+FROM Movies.ratings
+WHERE Movies.ratings.movie_id = 858
+
+--20
+SELECT  COUNT(ratings.rating)
+FROM Movies.ratings
+WHERE Movies.ratings.movie_id = 858
+
+--21
+SELECT   COUNT(genres)
+FROM Movies.movies 
+WHERE genres LIKE ('%comedy%')
+
+--22
+SELECT AVG(ratings.rating)
+FROM Movies.ratings 
+WHERE Movies.ratings.user_id = 1
+
+--23
+SELECT COUNT(ratings.rating) u, user_id 
+FROM Movies.ratings 
+GROUP BY user_id
+ORDER BY U DESC
+LIMIT 1
+
+--24
+SELECT AVG(ratings.rating) u, user_id
+FROM Movies.ratings 
+GROUP BY user_id
+ORDER BY U DESC
+LIMIT 1
+
+--25
+SELECT avg(ratings.rating) a, user_id, count(ratings.rating) c
+FROM Movies.ratings 
+GROUP BY user_id 
+HAVING c >50
+ORDER BY a DESC
+LIMIT 1
+
+--26
+SELECT AVG(ratings.rating) a, title
+FROM Movies.ratings 
+INNER JOIN Movies.movies
+ON Movies.movies.id = Movies.ratings.movie_id
+GROUP BY title 
+having a >4
+ORDER BY a DESC
